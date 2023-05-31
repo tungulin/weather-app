@@ -1,0 +1,74 @@
+.bigCard {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 30px 20px;
+    justify-content: end;
+    flex-direction: column;
+    width: 320px;
+    height: 430px;
+    background-color: aqua;
+    border-radius: 25px;
+    color: #fff;
+
+    
+    &__title {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &__body {
+        width: 100%;
+        display: grid;
+        text-align: center;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 20px;
+
+    }
+
+
+    &.--sunny {
+        background-image: url('../../../src/img/sunny-card.png');
+    }
+
+    &.--dark {
+        background-image: url('../../../src/img/dark-card.png');
+    }
+
+    &.--fog {
+        background-image: url('../../../src/img/fog-card.png');
+    }
+
+    &.--show {
+        background-image: url('../../../src/img/show-card.png');
+    }
+
+    &.--rain {
+        background-image: url('../../../src/img/rain-card.png');
+    }
+
+    &.--wind {
+        background-image: url('../../../src/img/wind-card.png');
+    }
+
+}
+
+.bigCard__title {
+    &__temp {
+        font-size: 3.5rem;
+        font-weight: 500;
+    }
+
+    &__subName {
+        font-size: 2rem;
+    }
+}
+
+.bigCard__body {
+    &__item .num {
+        font-size: 2rem;
+        margin-bottom: 5px;
+    }
+}

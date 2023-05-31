@@ -2,6 +2,10 @@
     width: 100%;
     height: 100vh;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     &.--sunny {
         background: linear-gradient(0deg, var(--sunny-gr1) 0%, var(--sunny-gr2) 100%);
     }
