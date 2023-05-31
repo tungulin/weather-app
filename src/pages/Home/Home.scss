@@ -1,4 +1,24 @@
 .home {
     width: 100%;
     height: 100vh;
+
+    &.--sunny {
+        background: linear-gradient(0deg, var(--sunny-gr1) 0%, var(--sunny-gr2) 100%);
+    }
+
+    &.--dark {
+        background: linear-gradient(0deg, var(--dark-gr1) 0%, var(--dark-gr2) 100%);
+    }
+
+    &.--cloudy {
+        background: linear-gradient(0deg, var(--cloudy-gr1) 0%, var(--cloudy-gr2) 100%);
+    }
+
+    &.--wind {
+        background: linear-gradient(0deg, var(--wind-gr1) 0%, var(--wind-gr2) 100%);
+    }
+
+    &.--show {
+        background: linear-gradient(0deg, var(--show-gr1) 0%, var(--show-gr2) 100%);
+    }
 }
