@@ -3,11 +3,18 @@
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
     padding: 0 20px;
     position: absolute;
 
-    &__menu {
-        
+    &__menu {}
+
+    &__name {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    &__name span {
+        color: var(--primary);
     }
 }

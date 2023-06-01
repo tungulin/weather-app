@@ -1,14 +1,22 @@
 import React, { FC } from 'react';
+import { useForm } from 'react-hook-form';
 import { ArrowBack } from '@mui/icons-material';
-
-import './Sidebar.scss'
 import { useDispatch, useSelector } from 'react-redux';
+
 import { ISlice } from '../../store/slice/ISlice'
 import { toogleSidebar } from '../../store/slice/defaultSlice'
+import Fields from '../Fields';
+
+import './Sidebar.scss'
 
 const Sidebar: FC = () => {
     const isOpenSidebar = useSelector((state: ISlice) => state.default.isOpenSidebar)
     const dispatch = useDispatch()
+
+    const { register, handleSubmit, control, formState: { errors } } = useForm({
+        mode: "onSubmit",
+        shouldUnregister: true,
+    });
 
     const onToggleSidebar = () => {
         dispatch(toogleSidebar())
@@ -23,6 +31,14 @@ const Sidebar: FC = () => {
                 <div className="sidebar__title__right">
                     Weather<span>APP</span>
                 </div>
+            </div>
+            <div className="sidebar__body">
+                <Fields.input
+                    title='Search country:'
+                    label='search'
+                    placeholder='Find your country'
+                    register={register}
+                    error={errors.search} />
             </div>
         </div>
     )

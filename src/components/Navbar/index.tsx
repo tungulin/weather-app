@@ -13,6 +13,9 @@ const Navbar: FC = () => {
 
     return (
         <div className='navbar'>
+            <div className="navbar__name">
+                Weather<span>APP</span>
+            </div>
             <div className='navbar__menu'>
                 <button onClick={onToggleSidebar}>
                     <Menu />

@@ -5,7 +5,7 @@
     height: calc((100% - 0px));
     width: 450px;
     z-index: 10000;
-    background: var(--base-200);
+    background: var(--base-100);
     padding: 30px;
     transform: translate3d(0, 0, 0);
     transition: transform 0.3s;
@@ -15,6 +15,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 20px;
     }
 
     &.--open {

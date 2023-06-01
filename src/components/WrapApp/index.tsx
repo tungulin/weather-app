@@ -1,16 +1,25 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { IWrapAppProps, ILocationState } from './IWrapApp'
 import useGeolocation from "react-hook-geolocation";
 
 const WrapApp = (props: IWrapAppProps) => {
 
-    const geolocation = useGeolocation();
+    // const geolocation = useGeolocation();
+    // const isLoading = useState<boolean>(false)
+
+    // useEffect(() => {
+    //     getGeolocation()
+    // }, [])
+
+    // const getGeolocation = async () => {
+
+    // }
+
+    // if (!isLoading) return
 
     return (
         <>
-            {console.log('geolocation', geolocation)}
-
-            {/* {props.children} */}
+            {props.children}
         </>
     )
 }

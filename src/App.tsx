@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import WrapApp from './components/WrapApp';
 import { Provider } from "react-redux";
 
+import './styles/inputs.scss'
 import './styles/variables.scss'
 import './styles/globals.scss'
 import { store } from './store';

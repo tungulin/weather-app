@@ -1,0 +1,40 @@
+.inputContainer {
+
+    &__title,
+    &__subTitle {
+        margin-bottom: 8px;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+    }
+
+    &__title .required {
+        content: " *";
+        color: var(--warning)
+    }
+
+    &__subTitle {
+        font-weight: 500;
+        font-size: 0.8rem;
+        color: var(--base-200)
+    }
+
+
+    &__body {
+        width: 100%;
+        height: 52px;
+        border-radius: 10px;
+        display: flex;
+
+    }
+
+    input {
+        border: 2px solid var(--base-200);
+        border-radius: 10px;
+        width: 100%;
+        padding: 10px;
+        background: transparent;
+    }
+}
