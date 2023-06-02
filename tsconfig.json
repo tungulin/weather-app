@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "paths": {
-      "pages/*": [
-        "./src/pages/*"
-      ],
-    },
+    "baseUrl": "./src",
     "target": "es5",
     "lib": [
       "dom",

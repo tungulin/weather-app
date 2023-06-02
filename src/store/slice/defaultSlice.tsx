@@ -13,6 +13,7 @@ const initialState: IDefaultSliceState = {
         daily: {
             time: [],
             apparent_temperature_max: [],
+            apparent_temperature_min: [],
             weathercode: [],
         }
     }

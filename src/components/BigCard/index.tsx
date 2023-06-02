@@ -1,8 +1,10 @@
 import React, { FC } from 'react'
-import './BigCard.scss'
+import moment from 'moment';
 import { IBigCard, IBigCardItem } from './IBigCard'
 
-const BigCard: FC<IBigCard> = ({ time, type, temp, items = [] }) => {
+import './BigCard.scss'
+
+const BigCard: FC<IBigCard> = ({ time, type, items = [] }) => {
 
     const InfoItem: FC<IBigCardItem> = ({ num, title }) => {
         return (
@@ -16,16 +18,13 @@ const BigCard: FC<IBigCard> = ({ time, type, temp, items = [] }) => {
     return (
         <div className={`bigCard --${type}`}>
             <div className="bigCard__title">
-                <div className="bigCard__title__temp">
-                    {temp}°
-                </div>
                 <div className="bigCard__title__subName">
-                    {time}
+                    {moment(time).format('DD MMMM')}
                 </div>
             </div>
             <div className='bigCard__body'>
                 {items.map((item, key) => {
-                    return <InfoItem key={key} num={"10%"} title='MIN' />
+                    return <InfoItem key={key} {...item} />
                 })}
             </div>
         </div>

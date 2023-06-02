@@ -30,15 +30,12 @@ const Home: FC = () => {
         const lengthWeather = daily.weathercode.length
 
         for (let i = 0; i < lengthWeather; i++) {
-
             cards.push({
                 time: daily.time[i],
                 type: chooseTypeWeather(daily.weathercode[i]),
-                temp: daily.apparent_temperature_max[i],
                 items: [
-                    { num: '10', title: '123' },
-                    { num: '10', title: '123' },
-                    { num: '10', title: '123' }
+                    { num: daily.apparent_temperature_max[i].toString() + '°', title: 'Max' },
+                    { num: daily.apparent_temperature_min[i].toString() + '°', title: 'Min' },
                 ]
             })
         }
@@ -46,57 +43,6 @@ const Home: FC = () => {
         setCards(cards)
     }
 
-    const slides = [
-        {
-            type: 'sunny',
-            temp: 20,
-            subName: 'clear day',
-            items: [
-                { num: '10', title: '123' },
-                { num: '10', title: '123' },
-                { num: '10', title: '123' }
-            ]
-        },
-        {
-            type: 'dark',
-            temp: 10,
-            subName: 'clear day',
-            items: [
-                { num: '10', title: '123' },
-                { num: '10', title: '123' },
-                { num: '10', title: '123' }
-            ]
-        },
-        {
-            type: 'sunny',
-            temp: 10,
-            subName: 'clear day',
-            items: [
-                { num: '10', title: '123' },
-                { num: '10', title: '123' },
-                { num: '10', title: '123' }
-            ]
-        },
-        {
-            type: 'rain', temp: 10,
-            subName: 'clear day',
-            items: [
-                { num: '10', title: '123' },
-                { num: '10', title: '123' },
-                { num: '10', title: '123' }
-            ]
-        },
-        {
-            type: 'wind',
-            temp: 10,
-            subName: 'clear day',
-            items: [
-                { num: '10', title: '123' },
-                { num: '10', title: '123' },
-                { num: '10', title: '123' }
-            ]
-        }
-    ]
 
     return <div className=' home --wind'>
         <div className='container'>

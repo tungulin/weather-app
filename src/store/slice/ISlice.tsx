@@ -10,6 +10,7 @@ export interface IWeather {
     daily: {
         time: string[],
         apparent_temperature_max: number[],
+        apparent_temperature_min: number[],
         weathercode: number[]
     }
 }

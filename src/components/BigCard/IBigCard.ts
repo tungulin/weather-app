@@ -5,7 +5,6 @@ export interface IBigCardItem {
 
 export interface IBigCard {
     time: string,
-    temp: number,
     items?: IBigCardItem[]
     type: string
 }

@@ -14,9 +14,6 @@ const Input: FC<IField> = ({ defaultValue, title, subTitle, label, placeholder, 
             <div className='inputContainer__body'>
                 <input placeholder={placeholder} {...register(label, { required, value: defaultValue })} />
             </div>
-            {/* {error?.message && <ErrorInput>
-                    {error?.message}
-                </ErrorInput>} */}
         </div >
     )
 }
