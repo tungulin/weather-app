@@ -13,5 +13,3 @@ Axios, moment, swiper, react-hot-toast, react-spinners
 
 ![App Screenshot](/public/Screen_1.png)
 ![App Screenshot](/public/Screen_3.png)
-![App Screenshot](/public/Screen_2.png)
-![App Screenshot](/public/Screen_4.png)
