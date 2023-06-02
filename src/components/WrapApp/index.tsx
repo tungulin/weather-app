@@ -2,9 +2,9 @@ import React, { FC, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-hot-toast';
 import { IWrapAppProps } from './IWrapApp'
-import { getCountryData } from '../../API/country';
-import { setCountry, setWeather } from '../../store/slice/defaultSlice';
-import { getHistoryWeather } from '../../API/weather';
+import { setCountry, setWeather } from 'store/slice/defaultSlice';
+import { getCountryData } from 'API/country';
+import { getHistoryWeather } from 'API/weather';
 
 const WrapApp = (props: IWrapAppProps) => {
     const dispatch = useDispatch()
@@ -17,7 +17,7 @@ const WrapApp = (props: IWrapAppProps) => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => getCountry(position),
-                (err) => toast.error('Location not received')
+                (err) => toast.error('Location not received. You may need to enable VPN :)')
             )
         }
     }

@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Menu } from '@mui/icons-material';
 import { Room } from '@mui/icons-material';
 
-import { toogleSidebar } from '../../store/slice/defaultSlice'
-import { ISlice } from '../../store/slice/ISlice';
+import { toogleSidebar } from 'store/slice/defaultSlice'
+import { ISlice } from 'store/slice/ISlice';
 
 import './Navbar.scss'
 

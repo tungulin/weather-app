@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
-import { ArrowBack } from '@mui/icons-material';
+import { ArrowBack, GitHub } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ISlice } from '../../store/slice/ISlice'
-import { toogleSidebar } from '../../store/slice/defaultSlice'
+import { ISlice } from 'store/slice/ISlice'
+import { toogleSidebar } from 'store/slice/defaultSlice'
 import Fields from '../Fields';
 
 import './Sidebar.scss'
@@ -23,13 +23,18 @@ const Sidebar: FC = () => {
     }
 
     return (
-        <div className={`sidebar ${!isOpenSidebar ? '--open' : ''}`}>
+        <div className={`sidebar ${isOpenSidebar ? '--open' : ''}`}>
             <div className='sidebar__title'>
                 <button className="sidebar__title__left" onClick={onToggleSidebar}>
                     <ArrowBack />
                 </button>
                 <div className="sidebar__title__right">
                     Weather<span>APP</span>
+                    <span className='github'>
+                        <a href='https://github.com/tungulin' target="_blank">
+                            <GitHub />
+                        </a>
+                    </span>
                 </div>
             </div>
             <div className="sidebar__body">
@@ -39,8 +44,12 @@ const Sidebar: FC = () => {
                     placeholder='Find your country'
                     register={register}
                     error={errors.search} />
+
+                <div className='sidebar__body__countries'>
+                    Soon...
+                </div>
             </div>
-        </div>
+        </div >
     )
 }
 

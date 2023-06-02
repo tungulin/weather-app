@@ -1,18 +1,18 @@
 import React, { FC, useEffect, useState } from 'react'
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useSelector } from 'react-redux';
 
-import BigCard from '../../components/BigCard'
-import { chooseTypeWeather } from '../../helpers/utils'
+import Loader from 'components/Loader';
+import BigCard from 'components/BigCard'
+import { chooseTypeWeather } from 'helpers/utils'
+import { ISlice } from 'store/slice/ISlice';
+import { ICards } from './IHome';
 
 import "swiper/css";
 import 'swiper/css/pagination'
 import 'swiper/css/effect-coverflow'
-
 import './Home.scss'
-import { useSelector } from 'react-redux';
-import { ISlice } from '../../store/slice/ISlice';
-import { ICards } from './IHome';
 
 const Home: FC = () => {
     const weather = useSelector((state: ISlice) => state.default.weather)
@@ -43,8 +43,13 @@ const Home: FC = () => {
         setCards(cards)
     }
 
+    if (!cards.length) return (
+        <div className=' home --show'>
+            <Loader />
+        </div>
+    )
 
-    return <div className=' home --wind'>
+    return <div className=' home --show'>
         <div className='container'>
             <Swiper
                 spaceBetween={1}
