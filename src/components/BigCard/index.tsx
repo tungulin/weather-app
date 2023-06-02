@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import './BigCard.scss'
 import { IBigCard, IBigCardItem } from './IBigCard'
 
-const BigCard: FC<IBigCard> = ({ type, temp, subName, items = [] }) => {
+const BigCard: FC<IBigCard> = ({ time, type, temp, items = [] }) => {
 
     const InfoItem: FC<IBigCardItem> = ({ num, title }) => {
         return (
@@ -20,12 +20,12 @@ const BigCard: FC<IBigCard> = ({ type, temp, subName, items = [] }) => {
                     {temp}°
                 </div>
                 <div className="bigCard__title__subName">
-                    {subName}
+                    {time}
                 </div>
             </div>
             <div className='bigCard__body'>
-                {items.map(item => {
-                    return <InfoItem num={"10%"} title='MIN' />
+                {items.map((item, key) => {
+                    return <InfoItem key={key} num={"10%"} title='MIN' />
                 })}
             </div>
         </div>

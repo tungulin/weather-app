@@ -1,16 +1,50 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import BigCard from '../../components/BigCard'
+import { chooseTypeWeather } from '../../helpers/utils'
 
 import "swiper/css";
 import 'swiper/css/pagination'
 import 'swiper/css/effect-coverflow'
 
 import './Home.scss'
+import { useSelector } from 'react-redux';
+import { ISlice } from '../../store/slice/ISlice';
+import { ICards } from './IHome';
 
 const Home: FC = () => {
+    const weather = useSelector((state: ISlice) => state.default.weather)
+    const [cards, setCards] = useState<ICards[]>([])
+
+    useEffect(() => {
+        if (weather.daily.time.length > 0) {
+            parseWeather()
+        }
+    }, [weather])
+
+    const parseWeather = () => {
+        const cards: ICards[] = []
+        const daily = weather.daily
+        const lengthWeather = daily.weathercode.length
+
+        for (let i = 0; i < lengthWeather; i++) {
+
+            cards.push({
+                time: daily.time[i],
+                type: chooseTypeWeather(daily.weathercode[i]),
+                temp: daily.apparent_temperature_max[i],
+                items: [
+                    { num: '10', title: '123' },
+                    { num: '10', title: '123' },
+                    { num: '10', title: '123' }
+                ]
+            })
+        }
+
+        setCards(cards)
+    }
 
     const slides = [
         {
@@ -64,7 +98,7 @@ const Home: FC = () => {
         }
     ]
 
-    return <div className=' home --show'>
+    return <div className=' home --wind'>
         <div className='container'>
             <Swiper
                 spaceBetween={1}
@@ -83,7 +117,7 @@ const Home: FC = () => {
                 className="swiper_container"
             >
                 {
-                    slides.map((slide, index) => {
+                    cards.map((slide, index) => {
                         return <SwiperSlide key={index}>
                             <BigCard {...slide} />
                         </SwiperSlide>

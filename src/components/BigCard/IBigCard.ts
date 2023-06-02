@@ -4,8 +4,8 @@ export interface IBigCardItem {
 }
 
 export interface IBigCard {
+    time: string,
     temp: number,
-    subName: string,
     items?: IBigCardItem[]
     type: string
 }
