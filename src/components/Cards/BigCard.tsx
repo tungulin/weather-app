@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 import moment from 'moment';
-import { IBigCard, IBigCardItem } from './IBigCard'
+import { IBigCard, ICardItem } from './ICard'
 
 import './BigCard.scss'
 
 const BigCard: FC<IBigCard> = ({ time, type, items = [] }) => {
 
-    const InfoItem: FC<IBigCardItem> = ({ num, title }) => {
+    const InfoItem: FC<ICardItem> = ({ num, title }) => {
         return (
             <div className='bigCard__body__item'>
                 <div className='num'>{num}</div>

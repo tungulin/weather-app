@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
-import { IField } from '../IFields'
+import { IInputField } from '../IFields'
 
-const Input: FC<IField> = ({ defaultValue, title, subTitle, label, placeholder, register, required, error }) => {
+const Input: FC<IInputField> = ({ defaultValue, title, subTitle, label, placeholder, register, required, error }) => {
     return (
         <div className='inputContainer'>
             {title && <div className='inputContainer__title' >

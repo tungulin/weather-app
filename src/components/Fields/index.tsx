@@ -1,13 +1,16 @@
 import { FC } from "react";
 import Input from "./components/Input";
-import { IField } from './IFields'
+import { IControlField, IInputField } from './IFields'
+import Autocomplete from "./components/Autocomplete";
 
 interface IFields {
-    input: FC<IField>
+    input: FC<IInputField>
+    autocomplete: FC<IControlField>
 }
 
 const Fields: IFields = {
-    input: Input
+    input: Input,
+    autocomplete: Autocomplete
 }
 
 export default Fields

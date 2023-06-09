@@ -1,4 +1,6 @@
 .inputContainer {
+    width: 100%;
+    position: relative;
 
     &__title,
     &__subTitle {
@@ -7,6 +9,9 @@
 
     &__title {
         display: flex;
+        position: absolute;
+        top: -25px;
+
         align-items: center;
     }
 
@@ -30,11 +35,33 @@
 
     }
 
-    input {
+    &__body input {
         border: 2px solid var(--base-200);
         border-radius: 10px;
         width: 100%;
         padding: 10px;
         background: transparent;
+    }
+}
+
+
+.btn {
+    background-color: var(--primary);
+    border-radius: 10px;
+    color: var(--base-100);
+    min-width: 50px;
+    height: 60px;
+    padding: 0 20px;
+    font-weight: bold;
+
+    &:hover {
+        filter: brightness(90%)
+    }
+
+
+    &.--disabled {
+        background-color: var(--neutral);
+        filter: none;
+        cursor: no-drop;
     }
 }

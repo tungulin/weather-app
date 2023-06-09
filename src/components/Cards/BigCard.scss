@@ -30,27 +30,27 @@
 
 
     &.--sunny {
-        background-image: url('../../../src/img/sunny-card.png');
+        background-image: url('../../../src/img/big-card/sunny-card.png');
     }
 
     &.--dark {
-        background-image: url('../../../src/img/dark-card.png');
+        background-image: url('../../../src/img/big-card/dark-card.png');
     }
 
     &.--fog {
-        background-image: url('../../../src/img/fog-card.png');
+        background-image: url('../../../src/img/big-card/fog-card.png');
     }
 
     &.--show {
-        background-image: url('../../../src/img/show-card.png');
+        background-image: url('../../../src/img/big-card/show-card.png');
     }
 
     &.--rain {
-        background-image: url('../../../src/img/rain-card.png');
+        background-image: url('../../../src/img/big-card/rain-card.png');
     }
 
     &.--wind {
-        background-image: url('../../../src/img/wind-card.png');
+        background-image: url('../../../src/img/big-card/wind-card.png');
     }
 
 }

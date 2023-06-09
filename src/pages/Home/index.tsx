@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useSelector } from 'react-redux';
 
 import Loader from 'components/Loader';
-import BigCard from 'components/BigCard'
+import BigCard from 'components/Cards/BigCard'
 import { chooseTypeWeather } from 'helpers/utils'
 import { ISlice } from 'store/slice/ISlice';
 import { ICards } from './IHome';
