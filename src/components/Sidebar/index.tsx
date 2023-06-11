@@ -1,20 +1,27 @@
-import React, { FC, useEffect } from 'react';
-import { useForm, useWatch } from 'react-hook-form';
+import React, { FC, useEffect, useRef } from 'react';
+import { useForm, useWatch, SubmitHandler } from 'react-hook-form';
 import { ArrowBack, GitHub } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ISlice } from 'store/slice/ISlice'
 import { toogleSidebar } from 'store/slice/defaultSlice'
+import SmallCard from 'components/Cards/SmallCard';
+import { useLocalStorage } from 'hooks/useLocalStorage';
+import { toast } from 'react-hot-toast';
 import Fields from '../Fields';
 
-import './Sidebar.scss'
 
 import dataRussia from "data/cities/Russia.json"
 import dataCountry from "data/country.json"
-import SmallCard from 'components/Cards/SmallCard';
+
+import './Sidebar.scss'
+
 
 const Sidebar: FC = () => {
     const isOpenSidebar = useSelector((state: ISlice) => state.default.isOpenSidebar)
+    const locationsWeather = useSelector((state: ISlice) => state.default.locationsWeather)
+    const [cities, setCities] = useLocalStorage('cities', [])
+
     const dispatch = useDispatch()
 
     const { register, handleSubmit, control, formState: { errors } } = useForm({
@@ -22,14 +29,20 @@ const Sidebar: FC = () => {
         shouldUnregister: true,
     });
 
-    const country = useWatch({ control, name: "city" });
+    const country = useWatch({ control, name: "country" });
+    const city = useWatch({ control, name: "city" });
 
-    const onToggleSidebar = () => {
-        dispatch(toogleSidebar())
-    }
+    const onToggleSidebar = () => dispatch(toogleSidebar())
 
     const onClickAddCity = (data: any) => {
-        //todo: Add functionality
+        const isAddedCity = cities.find((locationData: any) => locationData.city.name === data.city.name)
+
+        if (!isAddedCity) {
+            setCities([...cities, { value: cities.length + 1, ...data }])
+            toast.success('You added city. Refresh page please')
+        } else {
+            toast.error('This city has already been added')
+        }
     }
 
 
@@ -57,11 +70,10 @@ const Sidebar: FC = () => {
                             placeholder='Your country...'
                             control={control}
                             values={dataCountry}
-                            defaultValue={dataCountry[0]}
                             error={errors.country}
                         />
 
-                        <div className="sidebar__body__header__submit">
+                        {country && <div className="sidebar__body__header__submit">
                             <Fields.autocomplete
                                 title='Choose city:'
                                 label='city'
@@ -71,20 +83,27 @@ const Sidebar: FC = () => {
                                 values={dataRussia}
                                 error={errors.city}
                             />
-                            <button type='submit' disabled={!country} className={`btn ${country ? '' : '--disabled'}`}>Add</button>
-                        </div>
+                            <button type='submit' disabled={!city} className={`btn ${city ? '' : '--disabled'}`}>Add</button>
+                        </div>}
                     </div>
                 </form>
-
                 <div className='sidebar__body__cities'>
                     <div className="sidebar__body__cities__title">Your cities:</div>
                     <div className="sidebar__body__cities__body">
-                        <SmallCard name={{ city: 'cityTest', country: 'countryTets' }} degree={10} time='test' type='dark' />
-                        <SmallCard name={{ city: 'cityTest', country: 'countryTets' }} degree={10} time='test' type='dark' />
-                        <SmallCard name={{ city: 'cityTest', country: 'countryTets' }} degree={10} time='test' type='dark' />
-                        <SmallCard name={{ city: 'cityTest', country: 'countryTets' }} degree={10} time='test' type='dark' />
-                        <SmallCard name={{ city: 'cityTest', country: 'countryTets' }} degree={10} time='test' type='dark' />
-                        <SmallCard name={{ city: 'cityTest', country: 'countryTets' }} degree={10} time='test' type='dark' />
+                        {locationsWeather.length !== 0 && locationsWeather.map((location, key) => {
+                            return (
+                                <SmallCard
+                                    value={location.value}
+                                    key={key}
+                                    name={location.city + '/' + location.country}
+                                    temp={location.temp}
+                                    type={location.type}
+                                />
+                            )
+                        })}
+                        {locationsWeather.length === 0 && <div className='empty'>
+                            <span>You don't have any cities selected</span>
+                        </div>}
                     </div>
                 </div>
             </div>

@@ -2,7 +2,8 @@
 export interface IDefaultSliceState {
     isOpenSidebar: boolean,
     country: ICountry,
-    weather: IWeather
+    weather: IWeather,
+    locationsWeather: ILocationsWeather[] | []
 }
 
 export interface IWeather {
@@ -19,6 +20,14 @@ export interface ICountry {
     city: string,
     continent: string,
     countryName: string
+}
+
+export interface ILocationsWeather {
+    value: number,
+    city: string,
+    country: string,
+    temp: number,
+    type: string
 }
 
 

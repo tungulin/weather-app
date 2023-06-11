@@ -7,7 +7,13 @@ import { IControlField } from '../IFields';
 import { Paper } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-const Autocomplete: FC<IControlField> = ({ label, title, defaultValue, getOptionLabel, control, values, placeholder }) => {
+const Autocomplete: FC<IControlField> = ({
+    label,
+    title, defaultValue,
+    getOptionLabel = (option) => option.name,
+    control,
+    values,
+    placeholder }) => {
     //todo: check controlled
     return (
         <Controller

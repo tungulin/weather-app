@@ -9,17 +9,13 @@ export interface ICard {
     type: string
 }
 
-export interface ICard {
-    time: string,
-    type: string
-}
-
-
 export interface IBigCard extends ICard {
     items?: ICardItem[]
 }
 
-export interface ISmallCard extends ICard {
-    name: { country: string, city: string },
-    degree: number
+export interface ISmallCard {
+    value: number,
+    type: string
+    name: string,
+    temp: number,
 }

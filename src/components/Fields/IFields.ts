@@ -9,7 +9,7 @@ import {
 
 export interface IField {
     error: FieldError | FieldErrors | undefined
-    defaultValue?: { value: string, label: string }
+    defaultValue?: { value: string | number, name: string }
     label: string,
     placeholder: string
     title?: string,

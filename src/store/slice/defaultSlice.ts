@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { IDefaultSliceState, IWeather, ICountry } from './ISlice'
+import { IDefaultSliceState, ILocationsWeather, IWeather, ICountry } from './ISlice'
 
 const initialState: IDefaultSliceState = {
     isOpenSidebar: false,
@@ -16,7 +16,8 @@ const initialState: IDefaultSliceState = {
             apparent_temperature_min: [],
             weathercode: [],
         }
-    }
+    },
+    locationsWeather: []
 }
 
 export const defaultSlice = createSlice({
@@ -26,7 +27,8 @@ export const defaultSlice = createSlice({
         toogleSidebar: state => { state.isOpenSidebar = !state.isOpenSidebar },
         setCountry: (state, action: PayloadAction<ICountry>) => { state.country = action.payload },
         setWeather: (state, action: PayloadAction<IWeather>) => { state.weather = action.payload },
+        setLocationsWeather: (state, action: PayloadAction<ILocationsWeather[]>) => { state.locationsWeather = action.payload },
     },
 })
 
-export const { toogleSidebar, setCountry, setWeather } = defaultSlice.actions
+export const { toogleSidebar, setCountry, setWeather, setLocationsWeather } = defaultSlice.actions

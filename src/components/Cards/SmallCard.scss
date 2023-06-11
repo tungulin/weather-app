@@ -3,6 +3,7 @@
     height: 125px;
     border-radius: 25px;
     cursor: pointer;
+    position: relative;
     color: #fff;
     background-size: cover;
     position: relative;
@@ -23,6 +24,21 @@
         width: 100%;
         font-size: 2rem;
         padding: 30px;
+    }
+
+    &__delete {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        color: #fff;
+    }
+
+    &__delete svg {
+        width: 15px;
     }
 
 

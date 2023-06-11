@@ -11,6 +11,7 @@ import { ICards } from './IHome';
 
 import "swiper/css";
 import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 import 'swiper/css/effect-coverflow'
 import './Home.scss'
 
@@ -55,6 +56,7 @@ const Home: FC = () => {
                 spaceBetween={1}
                 effect={'coverflow'}
                 grabCursor={true}
+                navigation={true}
                 centeredSlides={true}
                 slidesPerView={'auto'}
                 coverflowEffect={{
@@ -64,7 +66,7 @@ const Home: FC = () => {
                     modifier: 2.5,
                 }}
                 pagination={true}
-                modules={[EffectCoverflow, Pagination]}
+                modules={[EffectCoverflow, Pagination, Navigation]}
                 className="swiper_container"
             >
                 {
